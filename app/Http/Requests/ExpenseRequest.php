@@ -13,7 +13,7 @@ class ExpenseRequest extends FormRequest
             return [
                 'description' => 'sometimes|string',
                 'amount' => 'sometimes|numeric',
-                'category' => 'sometimes|in:' . implode(
+                'category' => 'sometimes|in:'.implode(
                     ',',
                     array_column(ExpenseCategory::cases(), 'value')
                 ),
@@ -23,7 +23,7 @@ class ExpenseRequest extends FormRequest
         return [
             'description' => 'required|string',
             'amount' => 'required|numeric',
-            'category' => 'required|in:' . implode(
+            'category' => 'required|in:'.implode(
                 ',',
                 array_column(ExpenseCategory::cases(), 'value')
             ),

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Expense;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\ExpenseRequest;
 use App\Http\Resources\ExpenseResource;
+use App\Models\Expense;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class ExpenseController extends Controller
@@ -48,10 +48,10 @@ class ExpenseController extends Controller
         $to = $request->query('to', null);
 
         // Validate the 'from' and 'to' date format
-        if ($from && !$this->isValidDateFormat($from)) {
+        if ($from && ! $this->isValidDateFormat($from)) {
             return $this->failureResponse('Invalid from date format. Use yyyy-mm-dd h:i:s.');
         }
-        if ($to && !$this->isValidDateFormat($to)) {
+        if ($to && ! $this->isValidDateFormat($to)) {
             return $this->failureResponse('Invalid to date format. Use yyyy-mm-dd h:i:s.');
         }
 
@@ -76,7 +76,6 @@ class ExpenseController extends Controller
      *
      * POST /api/v1/expenses
      *
-     * @param \App\Http\Requests\ExpenseRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(ExpenseRequest $request)
@@ -97,8 +96,6 @@ class ExpenseController extends Controller
      *
      * PUT|PATCH /api/v1/expenses/{id}
      *
-     * @param \App\Http\Requests\ExpenseRequest $request
-     * @param \App\Models\Expense $expense
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(ExpenseRequest $request, Expense $expense)
@@ -118,7 +115,6 @@ class ExpenseController extends Controller
      *
      * DELETE /api/v1/expenses/{id}
      *
-     * @param \App\Models\Expense $expense
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Expense $expense)

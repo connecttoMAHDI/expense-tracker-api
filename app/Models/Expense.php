@@ -18,7 +18,7 @@ class Expense extends Model
 
     public function getAmountAttribute($value)
     {
-        return '$' . $value;
+        return '$'.$value;
     }
 
     public function user()
